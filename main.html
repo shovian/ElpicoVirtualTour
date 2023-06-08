@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-body">
+      <script>
+        const toRadians = (angle) => {
+          return (angle / 180) * Math.PI;
+        };
+        const mainBody = document.querySelector("#main-body");
+        const url = "image.jpg";
+        mainBody.innerHTML += `<a-sky src="./${url}"></a-sky>`;
+        const countBubble = 100;
+        for (var i = 0; i < countBubble; i++) {
+          const radius = 10;
+          const radian = ((Math.PI * i) / countBubble) * 2;
+          const x = radius * Math.sin(radian);
+          const y = -radius * Math.cos(radian);
+          console.log(x + " " + y);
+          mainBody.innerHTML += `<a-sphere position="${x} 1.25 ${y}" radius="1.25" color="#EF2D5E"></a-sphere>`;
+        }
+      </script>
+    </a-scene>
+  </body>
+</html>
